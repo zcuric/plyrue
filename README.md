@@ -1,4 +1,9 @@
-# plyrue
+# Plyrue
+
+This a custom fork of the original [vue-plyr](https://github.com/redxtech/vue-plyr) for internal use.
+Documentation is the same, only difference is the name `plyrue`.
+
+In future, it will probably diverge even more. 
 
 ## Project setup
 ```
