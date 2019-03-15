@@ -1,7 +1,21 @@
 import Plyrue from "./components/Plyrue.vue";
 
-export default {
-  install(vue){   
-      vue.component(Plyrue.name, Plyrue);
+const PlyruePlugin = {
+  install(vue) {   
+    vue.component(Plyrue.name, Plyrue);
   }
+}
+
+
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(PlyruePlugin)
+}
+
+export {
+  Plyrue,
+  PlyruePlugin
+}
+
+export default {
+  PlyruePlugin
 }

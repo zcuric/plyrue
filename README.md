@@ -1,7 +1,7 @@
 # Plyrue
 
-This a custom fork of the original [vue-plyr](https://github.com/redxtech/vue-plyr) for internal use.
-Documentation is the same, only difference is the name `plyrue`.
+This a custom fork of the original [vue-plyr](https://github.com/redxtech/vue-plyr) for internal use, the main difference is that is exclusively built with `Vue CLI`.
+Documentation is the same, directive is plyrue.
 
 In future, it will probably diverge even more. 
 
