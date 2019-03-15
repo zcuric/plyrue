@@ -1,6 +1,6 @@
 {
   "name": "plyrue",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Zdravko Ćurić <zcuric@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
