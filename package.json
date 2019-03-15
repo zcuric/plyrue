@@ -1,6 +1,6 @@
 {
   "name": "plyrue",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Vue component/plugin for the plyr.js.",
   "main": "dist/plyrue.js",
   "module": "dist/plyrue.mjs",
