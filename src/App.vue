@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import Plyrue from './components/Plyrue.vue'
+import Plyrue from '../dist/plyrue.common.js'
 
 export default {
   name: 'app',

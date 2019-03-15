@@ -1,10 +1,15 @@
 {
   "name": "plyrue",
   "version": "1.0.1",
+  "description": "Vue component/plugin for the plyr.js.",
+  "main": "dist/plyrue.js",
+  "module": "dist/plyrue.mjs",
+  "jsnext:main": "dist/plyrue.mjs",
   "author": "Zdravko Ćurić <zcuric@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib src/index.js",
+    "prebuild": "rimraf dist",
+    "build": "bili",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -16,8 +21,11 @@
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-service": "^3.5.0",
     "babel-eslint": "^10.0.1",
+    "bili": "^4.5.2",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
+    "rimraf": "^2.6.3",
+    "rollup-plugin-vue": "^4.7.2",
     "vue-template-compiler": "^2.5.21"
   },
   "eslintConfig": {
