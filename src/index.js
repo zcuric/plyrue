@@ -1,4 +1,5 @@
 import Plyrue from "./components/Plyrue.vue";
+import 'plyr/dist/plyr.css';
 
 const PlyruePlugin = {
   install(vue) {   

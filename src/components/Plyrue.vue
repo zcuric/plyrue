@@ -61,5 +61,3 @@
     }
   }
 </script>
-
-<style src="../../../node_modules/plyr/dist/plyr.css"></style>
