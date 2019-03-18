@@ -62,4 +62,4 @@
   }
 </script>
 
-<style src="../../node_modules/plyr/dist/plyr.css"></style>
+<style src="../../../node_modules/plyr/dist/plyr.css"></style>
