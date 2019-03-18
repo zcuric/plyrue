@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import Plyrue from '../dist/plyrue.common.js'
+import { Plyrue } from '../dist/plyrue';
 
 export default {
   name: 'app',
