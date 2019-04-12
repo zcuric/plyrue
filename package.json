@@ -22,6 +22,8 @@
     "bili": "^4.7.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.2",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
     "rimraf": "^2.6.3",
     "rollup-plugin-vue": "5.0.0",
     "vue-template-compiler": "^2.6.10"
@@ -44,6 +46,17 @@
     "plugins": {
       "autoprefixer": {}
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue,scss}": [
+      "npm run lint",
+      "git add"
+    ]
   },
   "browserslist": [
     "> 1%",
