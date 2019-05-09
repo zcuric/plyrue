@@ -5,7 +5,7 @@
   "main": "dist/plyrue.js",
   "author": "Zdravko Ćurić <zcuric@gmail.com>",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve ./example/main.js",
     "prebuild": "rimraf dist",
     "build": "bili",
     "lint": "vue-cli-service lint"
