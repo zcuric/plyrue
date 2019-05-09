@@ -1,63 +1,38 @@
 <template>
-  <div>
-    <slot/>
-  </div>
+  <component :is="component" v-bind="$attrs">
+    <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope">
+      <slot :name="slot" v-bind="scope"/>
+    </template>
+  </component>
 </template>
 
 <script>
-  import Plyr from 'plyr'
+import Audio from "./Audio";
+import Default from "./Default";
+import Main from "./Main";
+import Video from "./Video.vue";
+import VideoEmbed from "./VideoEmbed.vue";
 
-  export default {
-    name: 'plyrue',
-    props: {
-      options: {
-        type: Object,
-        required: false,
-        default () {
-          return {}
-        }
-      },
-      emit: {
-        type: Array,
-        required: false,
-        default () { return [] }
-      }
-    },
-    data () {
-      return {
-        player: {}
-      }
-    },
-    mounted () {
-      this.player = new Plyr(this.$el.firstChild, this.opts)
-      this.$emit('player', this.player)
-      this.emit.forEach(element => {
-        this.player.on(element, this.emitPlayerEvent)
-      })
-    },
-    beforeDestroy () {
-      try {
-        this.player.destroy()
-      } catch (e) {
-        if (!(this.opts.hideYouTubeDOMError && e.message === 'The YouTube player is not attached to the DOM.')) {
-          // eslint-disable-next-line
-          console.error(e)
-        }
-      }
-    },
-    methods: {
-      emitPlayerEvent (event) {
-        this.$emit(event.type, event)
-      }
-    },
-    computed: {
-      opts () {
-        const options = this.options
-        if (!this.options.hasOwnProperty('hideYouTubeDOMError')) {
-          options.hideYouTubeDOMError = true
-        }
-        return options
-      }
+export default {
+  extends: Main,
+  name: 'plyrue',
+  inheritAttrs: false,
+  props: {
+    type: {
+      type: String,
+      default: () => "default"
     }
+  },
+  computed: {
+    component() {
+      return `plyrue-${this.type}`;
+    }
+  },
+  components: {
+    "plyrue-default": Default,
+    "plyrue-audio": Audio,
+    "plyrue-video": Video,
+    "plyrue-embed": VideoEmbed
   }
+};
 </script>
