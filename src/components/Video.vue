@@ -1,21 +1,19 @@
 <template>
-  <div>
-    <video id="player" v-bind="attributes">
-      <slot/>
-      <template v-if="sources">
-        <source v-for="source in sources" v-bind="source" :key="source.src">
-      </template>
-      <template v-if="captions">
-        <track
-          v-for="caption in captions"
-          v-bind="caption"
-          :key="caption.label"
-          kind="captions"
-          default
-        >
-      </template>
-    </video>
-  </div>
+  <video v-bind="attributes">
+    <slot/>
+    <template v-if="sources">
+      <source v-for="source in sources" v-bind="source" :key="source.src">
+    </template>
+    <template v-if="captions">
+      <track
+        v-for="caption in captions"
+        v-bind="caption"
+        :key="caption.label"
+        kind="captions"
+        default
+      >
+    </template>
+  </video>
 </template>
 
 <script>
@@ -40,7 +38,7 @@ export default {
     },
     controls: {
       type: Boolean,
-      default: false
+      default: true
     },
     loop: {
       type: Boolean,
@@ -77,6 +75,3 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>

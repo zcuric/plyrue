@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <audio id="player" v-bind="attributes">
-      <slot/>
-      <template v-if="sources">
-        <source v-for="source in sources" v-bind="source" :key="source.src">
-      </template>
-    </audio>
-  </div>
+  <audio v-bind="attributes">
+    <slot/>
+    <template v-if="sources">
+      <source v-for="source in sources" v-bind="source" :key="source.src">
+    </template>
+  </audio>
 </template>
 
 <script>

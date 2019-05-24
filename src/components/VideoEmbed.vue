@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div class="plyr__video-embed" id="player">
-      <iframe :src="source" v-bind="$attrs"/>
-    </div>
+  <div class="plyr__video-embed">
+    <iframe :src="source" v-bind="$attrs"/>
   </div>
 </template>
 
@@ -15,7 +13,8 @@ export default {
   inheritAttrs: false,
   props: {
     src: {
-      type: String, default: () => null
+      type: String,
+      default: null
     }
   },
   computed: {
