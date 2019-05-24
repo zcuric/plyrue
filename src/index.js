@@ -1,9 +1,8 @@
-/* eslint-disable no-console */
 import Plyrue from "./components/Plyrue.vue";
 import 'plyr/dist/plyr.css';
 
 const PlyruePlugin = {
-  install(Vue, options) {
+  install(Vue, options = {}) {
     const name = options.name || Plyrue.name;
     Vue.component(name, Plyrue);
   }
