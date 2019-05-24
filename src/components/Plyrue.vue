@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Audio from "./Audio";
-import Default from "./Default";
+import Audio from "./Audio.vue";
+import Default from "./Default.vue";
 import Plyr from 'plyr';
 import Video from "./Video.vue";
 import VideoEmbed from "./VideoEmbed.vue";
@@ -52,7 +52,6 @@ export default {
   },
   computed: {
     component() {
-      if (!this.type) return 'div';
       return `plyrue-${this.type}`;
     }
   },

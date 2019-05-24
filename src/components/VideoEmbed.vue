@@ -20,9 +20,10 @@ export default {
   computed: {
     source() {
       const { src } = this;
-      // This fixes 
-      // `Refused to display 'src' in a frame because it set 'X-Frame-Options' to 'SAMEORIGIN'`.
-      // error
+      /**
+       *  This fixes `Refused to display 'src' in a frame 
+       * because it set 'X-Frame-Options' to 'SAMEORIGIN'` error
+      */ 
       if (src.includes(YOUTUBE_VIDEO)) {
         return src.replace(YOUTUBE_VIDEO, YOUTUBE_EMBED);
       } 

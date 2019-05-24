@@ -1,5 +1,5 @@
 <template>
-  <video v-bind="attributes">
+  <video v-bind="videoAttributes">
     <slot/>
     <template v-if="sources">
       <source v-for="source in sources" v-bind="source" :key="source.src">
@@ -66,7 +66,7 @@ export default {
     }
   },
   computed: {
-    attributes() {
+    videoAttributes() {
       const attributes = { ...this.$props };
       delete attributes.sources;
       delete attributes.captions;
