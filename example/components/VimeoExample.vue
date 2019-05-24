@@ -1,11 +1,10 @@
 <template>
   <plyrue
     type="embed"
-    width="500"
-    src="https://www.youtube.com/watch?v=C0DPdy98e4c"
+    src="https://player.vimeo.com/video/6370469"
     allowtransparency
     allow="autoplay"
-  />
+  ></plyrue>
 </template>
 
 <script>

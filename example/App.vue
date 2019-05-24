@@ -1,19 +1,16 @@
 <template>
-  <div class="flex-it">
-    <div class="links">
-      <router-link to="/">Default</router-link>
-      |
-      <router-link to="/audio">Audio</router-link>
-      |
-      <router-link to="/video">Video</router-link>
-      |
-      <router-link to="/video-slot">Video slot</router-link>
-      |
-      <router-link to="/vimeo">Vimeo</router-link>
-      |
-      <router-link to="/youtube">YouTube</router-link>
+  <div class="flex flex-col items-center justify-center">
+    <div class="bg-blue-400 flex justify-center links mb-10 shadow text-white w-full">
+      <router-link class="px-3 py-3 hover:bg-blue-500" to="/">Default</router-link>
+      <router-link class="px-3 py-3 hover:bg-blue-500" to="/audio">Audio</router-link>
+      <router-link class="px-3 py-3 hover:bg-blue-500" to="/video">Video</router-link>
+      <router-link class="px-3 py-3 hover:bg-blue-500" to="/video-slot">Video slot</router-link>
+      <router-link class="px-3 py-3 hover:bg-blue-500" to="/vimeo">Vimeo</router-link>
+      <router-link class="px-3 py-3 hover:bg-blue-500" to="/youtube">YouTube</router-link>
     </div>
     <router-view/>
+    <div>
+    </div>
   </div>
 </template>
 
@@ -22,24 +19,11 @@ export default {}
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.flex-it {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-it > div {
-  flex: 1;
-  width: 420px;
+.plyrue {
+  @apply w-1/3;
 }
 </style>
