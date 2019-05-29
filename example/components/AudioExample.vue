@@ -6,11 +6,13 @@
 export default {
   data() {
     return {
-      audio: [{
-        src: "http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3",
-        type: "audio/mp3"
-      }]
+      audio: [
+        {
+          src: 'http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3',
+          type: 'audio/mp3',
+        },
+      ],
     };
-  }
-}
+  },
+};
 </script>

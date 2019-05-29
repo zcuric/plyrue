@@ -9,13 +9,12 @@
       <router-link class="px-3 py-3 hover:bg-blue-500" to="/youtube">YouTube</router-link>
     </div>
     <router-view/>
-    <div>
-    </div>
+    <div></div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style>

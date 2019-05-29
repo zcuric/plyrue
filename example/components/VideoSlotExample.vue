@@ -46,9 +46,9 @@ export default {
   data() {
     return {
       options: {
-        controls: ["play", "progress", "current-time", "volume", "settings"]
-      }
+        controls: ['play', 'progress', 'current-time', 'volume', 'settings'],
+      },
     };
   },
-}
+};
 </script>

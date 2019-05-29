@@ -7,6 +7,7 @@
     "serve": "vue-cli-service serve ./example/main.js",
     "build": "bili",
     "test": "jest",
+    "format": "prettier --write",
     "lint": "vue-cli-service lint",
     "prebuild": "rimraf dist"
   },
@@ -31,6 +32,7 @@
     "husky": "^2.2.0",
     "jest": "^24.8.0",
     "lint-staged": "^8.1.6",
+    "prettier": "^1.17.1",
     "rimraf": "^2.6.3",
     "rollup-plugin-vue": "5.0.0",
     "tailwindcss": "^1.0.1",

@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import Audio from "./Audio.vue";
-import Default from "./Default.vue";
+import Audio from './Audio.vue';
+import Default from './Default.vue';
 import Plyr from 'plyr';
-import Video from "./Video.vue";
-import VideoEmbed from "./VideoEmbed.vue";
+import Video from './Video.vue';
+import VideoEmbed from './VideoEmbed.vue';
 
 export default {
   name: 'plyrue',
@@ -21,16 +21,16 @@ export default {
   props: {
     type: {
       type: String,
-      default: "default"
+      default: 'default',
     },
     options: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     emit: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   mounted() {
     const { $el, options, emit, emitPlayerEvent } = this;
@@ -42,24 +42,28 @@ export default {
     try {
       this.player && this.player.destroy();
     } catch (e) {
+      /**
+       * Suppresing Youtube Widget API error
+       * when plyrue gets destroyed in case of embed compoent
+       * */
       console.warn(e.message);
     }
   },
   methods: {
     emitPlayerEvent(event) {
       this.$emit(event.type, event);
-    }
+    },
   },
   computed: {
     component() {
       return `plyrue-${this.type}`;
-    }
+    },
   },
   components: {
-    "plyrue-audio": Audio,
-    "plyrue-default": Default,
-    "plyrue-video": Video,
-    "plyrue-embed": VideoEmbed
-  }
+    'plyrue-audio': Audio,
+    'plyrue-default': Default,
+    'plyrue-video': Video,
+    'plyrue-embed': VideoEmbed,
+  },
 };
 </script>

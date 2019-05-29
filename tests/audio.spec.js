@@ -1,11 +1,13 @@
-import { mount } from '@vue/test-utils'
-import Plyrue from '@/components/Plyrue.vue'
+import { mount } from '@vue/test-utils';
+import Plyrue from '@/components/Plyrue.vue';
 jest.mock('plyr');
 
-const sources = [{
-  src: "http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3",
-  type: "audio/mp3"
-}];
+const sources = [
+  {
+    src: 'http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3',
+    type: 'audio/mp3',
+  },
+];
 
 describe('Plyrue audio type', () => {
   it('renders html5 audio with sources attribute', () => {
@@ -20,7 +22,7 @@ describe('Plyrue audio type', () => {
     expect(wrapper.contains('source')).toBe(true);
 
     wrapper.destroy();
-  })
+  });
 
   it('sets audio player attributes', () => {
     const wrapper = mount(Plyrue, {
@@ -28,20 +30,22 @@ describe('Plyrue audio type', () => {
         type: 'audio',
         sources,
         controls: false,
-        muted: true
+        muted: true,
       },
     });
-  
+
     expect(wrapper.find('audio').attributes().controls).toBe(undefined);
     expect(wrapper.find('audio').attributes().muted).toBe('muted');
 
     wrapper.destroy();
-  })
+  });
 
   it('renders html5 audio with source slot', () => {
     const wrapper = mount(Plyrue, {
       slots: {
-        default: ['<source src="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3" type="audio/mp3">']
+        default: [
+          '<source src="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3" type="audio/mp3">',
+        ],
       },
       attrs: {
         type: 'audio',
@@ -50,5 +54,5 @@ describe('Plyrue audio type', () => {
 
     expect(wrapper.contains('audio')).toBe(true);
     expect(wrapper.contains('source')).toBe(true);
-  })
-}) 
+  });
+});

@@ -22,48 +22,48 @@ export default {
   props: {
     sources: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     captions: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     autoplay: {
       type: Boolean,
-      default: false
+      default: false,
     },
     crossorigin: {
       type: Boolean,
-      default: false
+      default: false,
     },
     controls: {
       type: Boolean,
-      default: true
+      default: true,
     },
     loop: {
       type: Boolean,
-      default: false
+      default: false,
     },
     muted: {
       type: Boolean,
-      default: false
+      default: false,
     },
     preload: {
       type: String,
-      default: "none"
+      default: 'none',
     },
     playsinline: {
       type: Boolean,
-      default: false
+      default: false,
     },
     poster: {
       type: String,
-      default: null
+      default: null,
     },
     src: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     videoAttributes() {
@@ -71,7 +71,7 @@ export default {
       delete attributes.sources;
       delete attributes.captions;
       return attributes;
-    }
-  }
+    },
+  },
 };
 </script>

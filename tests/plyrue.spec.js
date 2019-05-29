@@ -1,13 +1,15 @@
-import { mount } from '@vue/test-utils'
-import Plyrue from '@/components/Plyrue.vue'
+import { mount } from '@vue/test-utils';
+import Plyrue from '@/components/Plyrue.vue';
 jest.mock('plyr');
 
-const src = 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4';
+const src =
+  'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4';
 const sources = [
   {
-    src: "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4",
-    type: "video/mp4",
-    size: "576"
+    src:
+      'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4',
+    type: 'video/mp4',
+    size: '576',
   },
 ];
 
@@ -25,8 +27,7 @@ describe('Plyrue component', () => {
     wrapper.vm.player.destroy = jest.fn();
     wrapper.destroy();
     expect(wrapper.vm.player.destroy).toHaveBeenCalled();
-  })
-
+  });
 
   it('emits event', () => {
     const wrapper = mount(Plyrue, {
@@ -37,9 +38,9 @@ describe('Plyrue component', () => {
         src,
       },
     });
-    wrapper.vm.emitPlayerEvent({ type: 'play'})
+    wrapper.vm.emitPlayerEvent({ type: 'play' });
     expect(wrapper.emitted().play).toBeTruthy();
-  })
+  });
 
   it('catches Youtube error', () => {
     const wrapper = mount(Plyrue, {
@@ -54,5 +55,5 @@ describe('Plyrue component', () => {
     });
     wrapper.destroy();
     expect(console.warn).toHaveBeenCalled();
-  })
-}) 
+  });
+});

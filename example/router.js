@@ -1,45 +1,45 @@
 import AudioExample from './components/AudioExample';
 import DefaultExample from './components/DefaultExample';
-import Router from 'vue-router'
+import Router from 'vue-router';
 import VideoExample from './components/VideoExample';
 import VideoSlotExample from './components/VideoSlotExample';
 import VimeoExample from './components/VimeoExample';
-import Vue from 'vue'
+import Vue from 'vue';
 import YoutubeExample from './components/YoutubeExample';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
       path: '/',
       name: 'Default Example',
-      component: DefaultExample
+      component: DefaultExample,
     },
     {
       path: '/video',
       name: 'Video Example',
-      component: VideoExample
+      component: VideoExample,
     },
     {
       path: '/video-slot',
       name: 'Video Slot Example',
-      component: VideoSlotExample
+      component: VideoSlotExample,
     },
     {
       path: '/vimeo',
       name: 'Vimeo',
-      component: VimeoExample
+      component: VimeoExample,
     },
     {
       path: '/youtube',
       name: 'YouTube',
-      component: YoutubeExample
+      component: YoutubeExample,
     },
     {
       path: '/audio',
       name: 'Audio',
-      component: AudioExample
+      component: AudioExample,
     },
-  ]
-})
+  ],
+});
