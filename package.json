@@ -2,30 +2,42 @@
   "name": "plyrue",
   "version": "1.1.5",
   "description": "Vue component/plugin for the plyr.js.",
-  "main": "dist/plyrue.js",
   "author": "Zdravko Ćurić <zcuric@gmail.com>",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "prebuild": "rimraf dist",
+    "serve": "vue-cli-service serve ./example/main.js",
     "build": "bili",
-    "lint": "vue-cli-service lint"
+    "test": "jest",
+    "format": "prettier --write",
+    "lint": "vue-cli-service lint",
+    "prebuild": "rimraf dist"
   },
+  "main": "dist/plyrue.js",
   "dependencies": {
-    "plyr": "^3.5.3",
-    "vue": "^2.6.10"
+    "plyr": "^3.5.4"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.5.5",
-    "@vue/cli-plugin-eslint": "^3.5.1",
-    "@vue/cli-service": "^3.5.3",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@vue/cli-plugin-babel": "^3.7.0",
+    "@vue/cli-plugin-eslint": "^3.7.0",
+    "@vue/cli-plugin-unit-jest": "^3.8.0",
+    "@vue/cli-service": "^3.7.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "bili": "^4.7.3",
+    "babel-jest": "^24.8.0",
+    "bili": "^4.7.4",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.2",
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.5",
+    "husky": "^2.2.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.1.6",
+    "prettier": "^1.17.1",
     "rimraf": "^2.6.3",
     "rollup-plugin-vue": "5.0.0",
+    "tailwindcss": "^1.0.1",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
@@ -37,16 +49,24 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": 0
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
   },
   "postcss": {
     "plugins": {
+      "tailwindcss": {},
       "autoprefixer": {}
     }
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -57,10 +77,5 @@
       "npm run lint",
       "git add"
     ]
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  }
 }

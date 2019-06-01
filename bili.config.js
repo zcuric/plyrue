@@ -1,20 +1,20 @@
 module.exports = {
   input: {
-    'plyrue': 'src/index.js'
+    plyrue: 'src/index.js',
   },
   output: {
     format: ['cjs', 'es', 'umd', 'umd-min'],
-    moduleName: 'Plyrue'
+    moduleName: 'Plyrue',
   },
   postcss: {
-    extract: true
+    extract: true,
   },
   plugins: {
     vue: true,
     babel: {
       runtimeHelpers: true,
       sourceMap: true,
-      extensions: ['.js', '.vue']
-    }
-  }
-}
+      extensions: ['.js', '.vue'],
+    },
+  },
+};
