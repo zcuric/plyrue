@@ -6,6 +6,13 @@
 <h1 align="center">Plyrue</h1>
 <p align="center">Vue.js plugin for <a href="https://plyr.io">Plyr</a></p>
 
+<p align="center">
+<a href="https://www.npmjs.com/package/plyrue"><img src="https://img.shields.io/npm/v/plyrue.svg"/></a>
+<a href="https://vuejs.org/"><img src="https://img.shields.io/badge/vue-2.x-brightgreen.svg"/></a>
+<a href="https://circleci.com/gh/zcuric/plyrue">
+<img src="https://circleci.com/gh/zcuric/plyrue/tree/master.svg?style=svg"/></a>
+</p>
+
 ## About
 
 Plyrue (/pliru/) is a Vue plugin that is actually a wrapper around popular media player, [Plyr](https://plyr.io). It provides a simple API to work with Vue applications.
