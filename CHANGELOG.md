@@ -1,4 +1,20 @@
 
+<a name="v2.0.2"></a>
+## [v2.0.2](https://github.com/zcuric/plyrue/compare/v2.0.1...v2.0.2) (2019-06-01)
+
+### Update
+
+* Update babel config and add np-config.json
+
+
+<a name="v2.0.1"></a>
+## [v2.0.1](https://github.com/zcuric/plyrue/compare/v2.0.0...v2.0.1) (2019-06-01)
+
+### Add
+
+* Add CHANGELOG.md
+
+
 <a name="v2.0.0"></a>
 ## [v2.0.0](https://github.com/zcuric/plyrue/compare/v1.1.5...v2.0.0) (2019-06-01)
 
