@@ -2,6 +2,11 @@
   "name": "plyrue",
   "version": "2.0.2",
   "description": "Vue component/plugin for the plyr.js.",
+  "repository": {
+    "url": "zcuric/plyrue",
+    "type": "git"
+  },
+  "license": "MIT",
   "author": "Zdravko Ćurić <zcuric@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve ./example/main.js",
@@ -13,7 +18,7 @@
   },
   "main": "dist/plyrue.js",
   "dependencies": {
-    "plyr": "^3.5.4"
+    "plyr": "^3.5.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -21,21 +26,21 @@
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-plugin-unit-jest": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
+    "@vue/cli-service": "^3.8.4",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
     "bili": "^4.8.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.2",
-    "husky": "^2.4.0",
+    "husky": "^2.4.1",
     "jest": "^24.8.0",
-    "lint-staged": "^8.1.7",
-    "prettier": "^1.17.1",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.18.2",
     "rimraf": "^2.6.3",
     "rollup-plugin-vue": "5.0.0",
-    "tailwindcss": "^1.0.3",
+    "tailwindcss": "^1.0.4",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
     "vue-template-compiler": "^2.6.10"
