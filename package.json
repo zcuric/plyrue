@@ -1,6 +1,6 @@
 {
   "name": "plyrue",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Vue component/plugin for the plyr.js.",
   "repository": {
     "url": "zcuric/plyrue",
