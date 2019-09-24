@@ -1,4 +1,51 @@
 
+<a name="v2.0.6"></a>
+## [v2.0.6](https://github.com/zcuric/plyrue/compare/v2.0.5...v2.0.6) (2019-09-19)
+
+### Update
+
+* Update dependencies
+
+
+<a name="v2.0.5"></a>
+## [v2.0.5](https://github.com/zcuric/plyrue/compare/v2.0.4...v2.0.5) (2019-08-07)
+
+### Lock
+
+* Lock rollup-plugin-vue because of vue-runtime-helpers
+
+### Update
+
+* Update dependencies
+
+
+<a name="v2.0.4"></a>
+## [v2.0.4](https://github.com/zcuric/plyrue/compare/v2.0.3...v2.0.4) (2019-07-24)
+
+### Update
+
+* Update dependencies, npm audit fix
+
+
+<a name="v2.0.3"></a>
+## [v2.0.3](https://github.com/zcuric/plyrue/compare/v2.0.2...v2.0.3) (2019-06-22)
+
+### Create
+
+* Create LICENSE
+
+### Merge
+
+* Merge branch 'master' of github.com:zcuric/plyrue
+
+### Update
+
+* Update dependencies, add repository and licences field
+* Update dependencies
+* Update issue templates
+* Update CHANGELOG.md
+
+
 <a name="v2.0.2"></a>
 ## [v2.0.2](https://github.com/zcuric/plyrue/compare/v2.0.1...v2.0.2) (2019-06-01)
 
