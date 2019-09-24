@@ -13,3 +13,4 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default PlyruePlugin;
+export { Plyrue as PlyrueComponent, PlyruePlugin };
