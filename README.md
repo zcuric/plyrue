@@ -39,6 +39,17 @@ new Vue({
 }).$mount('#app');
 ```
 
+Plyrue component can be used in without plugin initialization:
+```js
+import { PlyrueComponent as Plyrue } from 'plyrue';
+...
+export default { 
+  ...
+  components: { Plyrue }
+}
+```
+
+
 ## Usage
 
 Plyrue can be used in two ways:
