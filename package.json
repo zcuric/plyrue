@@ -1,6 +1,6 @@
 {
   "name": "plyrue",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Vue component/plugin for the plyr.js.",
   "repository": {
     "url": "zcuric/plyrue",
@@ -15,8 +15,7 @@
     "format": "prettier --write",
     "lint": "vue-cli-service lint",
     "prebuild": "rimraf dist",
-    "prepublish": "npm run build",
-    "publish": "np"
+    "prepare": "npm run build"
   },
   "main": "dist/plyrue.js",
   "dependencies": {
