@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Plyrue from '@/components/Plyrue.vue';
+import { PlyrueComponent as Plyrue } from '@/';
 import Video from '@/components/Video.vue';
 jest.mock('plyr');
 
