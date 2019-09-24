@@ -1,4 +1,31 @@
 
+<a name="v2.1.2"></a>
+## [v2.1.2](https://github.com/zcuric/plyrue/compare/v2.1.1...v2.1.2) (2019-09-24)
+
+
+<a name="v2.1.1"></a>
+## [v2.1.1](https://github.com/zcuric/plyrue/compare/v2.1.0...v2.1.1) (2019-09-24)
+
+### Tweeak
+
+* Tweeak publishing
+
+
+<a name="v2.1.0"></a>
+## [v2.1.0](https://github.com/zcuric/plyrue/compare/v2.0.6...v2.1.0) (2019-09-24)
+
+### Export
+
+* Export Plyrue component to be available for use without plugin
+
+### Update
+
+* Update CHANGELOG
+* Update dependencies
+* Update README.md
+* Update tests to import Plyrue component from index.js
+
+
 <a name="v2.0.6"></a>
 ## [v2.0.6](https://github.com/zcuric/plyrue/compare/v2.0.5...v2.0.6) (2019-09-19)
 
