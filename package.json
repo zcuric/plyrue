@@ -14,7 +14,8 @@
     "test": "jest",
     "format": "prettier --write",
     "lint": "vue-cli-service lint",
-    "prebuild": "rimraf dist"
+    "prebuild": "rimraf dist",
+    "publish": "npm run build && np"
   },
   "main": "dist/plyrue.js",
   "dependencies": {
