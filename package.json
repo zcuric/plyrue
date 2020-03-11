@@ -14,6 +14,7 @@
     "test": "jest",
     "format": "prettier --write",
     "lint": "vue-cli-service lint",
+    "release": "npx np",
     "prebuild": "rimraf dist",
     "prepare": "npm run build"
   },
@@ -47,6 +48,9 @@
     "vue-router": "^3.1.6",
     "vue-template-compiler": "^2.6.11"
   },
+  "files": [
+    "dist"
+  ],
   "eslintConfig": {
     "root": true,
     "env": {
