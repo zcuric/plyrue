@@ -2,7 +2,7 @@
   <div class="plyrue">
     <component :is="component" v-bind="$attrs">
       <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope">
-        <slot :name="slot" v-bind="scope"/>
+        <slot :name="slot" v-bind="scope" />
       </template>
     </component>
   </div>
@@ -27,16 +27,15 @@ export default {
       type: Object,
       default: () => ({}),
     },
-    emit: {
-      type: Array,
-      default: () => [],
-    },
   },
   mounted() {
-    const { $el, options, emit, emitPlayerEvent } = this;
+    const { $el, options, emitPlayerEvent } = this;
     this.player = new Plyr($el.firstChild, options);
     this.$emit('player', this.player);
-    emit.forEach(el => this.player.on(el, emitPlayerEvent));
+    const events = Object.keys(this.$listeners);
+    events.forEach(event => {
+      this.player.on(event, emitPlayerEvent);
+    });
   },
   beforeDestroy() {
     try {

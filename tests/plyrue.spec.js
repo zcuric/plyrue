@@ -30,6 +30,7 @@ describe('Plyrue component', () => {
   });
 
   it('emits event', () => {
+    const play = jest.fn();
     const wrapper = mount(Plyrue, {
       attachToDocument: true,
       attrs: {
@@ -37,9 +38,11 @@ describe('Plyrue component', () => {
         sources,
         src,
       },
+      listeners: { play }
     });
     wrapper.vm.emitPlayerEvent({ type: 'play' });
     expect(wrapper.emitted().play).toBeTruthy();
+    expect(play).toHaveBeenCalled()
   });
 
   it('catches Youtube error', () => {

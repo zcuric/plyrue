@@ -185,13 +185,6 @@ For examples and usage please check the [examples folder](https://github.com/zcu
 
 Options for Plyr player. Documentation for Plyr options can be found [here](https://github.com/sampotts/plyr#options).
 
-### emit
-
-- **Type**: `Object`
-- **Default**: `[]`
-
-Array of events to be emitted.
-
 ### sources
 
 - **Type**: `Array`
@@ -258,37 +251,23 @@ Example:
 
 ## Events
 
-For capturing events from the `plyr` player, use `ref`.
-Events provided by `plyr` are documented [here](https://github.com/sampotts/plyr#events).
+`Plyrue` component supports `plyr` events.
+Events are documented [here](https://github.com/sampotts/plyr#events).
 
 ```vue
 <template>
-  <plyrue ref="plyrue" ... />
+  <plyrue @playing="handlePlaying" ... />
 </template>
 
 <script>
 export default {
-  mounted() {
-    this.player.on('some event', () => console.warn('some event fired'));
-  },
-  computed: {
-    player() {
-      return this.$refs.plyrue.player;
-    },
-  },
+  methods: { 
+    handlePlaying(event) {}
+  }
 };
 </script>
 ```
 
-Another option is to pass array of events as prop:
-
-```vue
-<plyrue
-  :emit="['timeupdate', 'exitfullscreen']"
-  @timeupdate="videoTimeUpdated"
-  @exitfullscreen="exitedFullScreen"
-/>
-```
 
 ## Development
 
