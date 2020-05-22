@@ -1,4 +1,4 @@
-import { mount, config } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
 import { PlyrueComponent as Plyrue } from '@/';
 config.showDeprecationWarnings = false;
 jest.mock('plyr');
@@ -10,9 +10,9 @@ describe('Plyrue default type', () => {
         default: [
           `<audio>
             <source src="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3" type="audio/mp3" />
-          </audio>`,
-        ],
-      },
+          </audio>`
+        ]
+      }
     });
 
     expect(wrapper.find('audio')).toBeTruthy();

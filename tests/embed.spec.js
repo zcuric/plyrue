@@ -1,4 +1,4 @@
-import { mount, config } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
 import { PlyrueComponent as Plyrue } from '@/';
 import VideoEmbed from '@/components/VideoEmbed.vue';
 config.showDeprecationWarnings = false;
@@ -8,12 +8,12 @@ describe('Plyrue video embed type', () => {
   it('embeds youtube video', () => {
     const wrapper = mount(Plyrue, {
       stubs: {
-        VideoEmbed,
+        VideoEmbed
       },
       attrs: {
         type: 'embed',
-        src: 'https://www.youtube.com/watch?v=jNQXAC9IVRw',
-      },
+        src: 'https://www.youtube.com/watch?v=jNQXAC9IVRw'
+      }
     });
 
     expect(wrapper.find('iframe')).toBeTruthy();
@@ -24,12 +24,12 @@ describe('Plyrue video embed type', () => {
   it('embeds vimeo video', () => {
     const wrapper = mount(Plyrue, {
       stubs: {
-        VideoEmbed,
+        VideoEmbed
       },
       attrs: {
         type: 'embed',
-        src: 'https://vimeo.com/56282283',
-      },
+        src: 'https://vimeo.com/56282283'
+      }
     });
 
     expect(wrapper.find('iframe')).toBeTruthy();
@@ -42,8 +42,8 @@ describe('VideoEmbed component', () => {
   it('Converts youtube video url to youtube embed url', () => {
     const wrapper = mount(VideoEmbed, {
       propsData: {
-        src: 'https://www.youtube.com/watch?v=jNQXAC9IVRw',
-      },
+        src: 'https://www.youtube.com/watch?v=jNQXAC9IVRw'
+      }
     });
 
     expect(wrapper.find('iframe').attributes('src')).toBe(

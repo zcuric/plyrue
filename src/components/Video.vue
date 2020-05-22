@@ -1,17 +1,16 @@
 <template>
   <video v-bind="videoAttributes">
-    <slot/>
+    <slot></slot>
     <template v-if="sources">
-      <source v-for="source in sources" v-bind="source" :key="source.src">
+      <source v-for="source in sources" :key="source.src" v-bind="source">
     </template>
     <template v-if="captions">
       <track
         v-for="caption in captions"
-        v-bind="caption"
         :key="caption.label"
+        v-bind="caption"
         kind="captions"
-        default
-      >
+        default>
     </template>
   </video>
 </template>
@@ -22,48 +21,48 @@ export default {
   props: {
     sources: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     captions: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     autoplay: {
       type: Boolean,
-      default: false,
+      default: false
     },
     crossorigin: {
       type: Boolean,
-      default: false,
+      default: false
     },
     controls: {
       type: Boolean,
-      default: true,
+      default: true
     },
     loop: {
       type: Boolean,
-      default: false,
+      default: false
     },
     muted: {
       type: Boolean,
-      default: false,
+      default: false
     },
     preload: {
       type: String,
-      default: 'none',
+      default: 'none'
     },
     playsinline: {
       type: Boolean,
-      default: false,
+      default: false
     },
     poster: {
       type: String,
-      default: null,
+      default: null
     },
     src: {
       type: String,
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     videoAttributes() {
@@ -71,7 +70,7 @@ export default {
       delete attributes.sources;
       delete attributes.captions;
       return attributes;
-    },
-  },
+    }
+  }
 };
 </script>

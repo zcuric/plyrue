@@ -1,8 +1,8 @@
 <template>
   <audio v-bind="attributes">
-    <slot/>
+    <slot></slot>
     <template v-if="sources">
-      <source v-for="source in sources" v-bind="source" :key="source.src">
+      <source v-for="source in sources" :key="source.src" v-bind="source">
     </template>
   </audio>
 </template>
@@ -13,40 +13,39 @@ export default {
   props: {
     sources: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     autoplay: {
       type: Boolean,
-      default: false,
+      default: false
     },
     controls: {
       type: Boolean,
-      default: true,
+      default: true
     },
     loop: {
       type: Boolean,
-      default: false,
+      default: false
     },
     muted: {
       type: Boolean,
-      default: false,
+      default: false
     },
     preload: {
       type: String,
-      default: 'none',
+      default: 'none'
     },
     src: {
       type: String,
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     attributes() {
       const attributes = { ...this.$props };
       delete attributes.sources;
       return attributes;
-    },
-  },
+    }
+  }
 };
 </script>
-

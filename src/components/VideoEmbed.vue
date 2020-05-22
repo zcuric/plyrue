@@ -1,20 +1,20 @@
 <template>
   <div class="plyr__video-embed">
-    <iframe :src="source" v-bind="$attrs"/>
+    <iframe :src="source" v-bind="$attrs"></iframe>
   </div>
 </template>
 
 <script>
-const YOUTUBE_VIDEO = `https://www.youtube.com/watch?v=`;
-const YOUTUBE_EMBED = `https://www.youtube.com/embed/`;
+const YOUTUBE_VIDEO = 'https://www.youtube.com/watch?v=';
+const YOUTUBE_EMBED = 'https://www.youtube.com/embed/';
 
 export default {
   inheritAttrs: false,
   props: {
     src: {
       type: String,
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     source() {
@@ -28,8 +28,7 @@ export default {
       }
 
       return src;
-    },
-  },
+    }
+  }
 };
 </script>
-

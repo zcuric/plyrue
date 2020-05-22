@@ -8,7 +8,7 @@
       <router-link class="px-3 py-3 hover:bg-blue-500" to="/vimeo">Vimeo</router-link>
       <router-link class="px-3 py-3 hover:bg-blue-500" to="/youtube">YouTube</router-link>
     </div>
-    <router-view/>
+    <router-view />
     <div></div>
   </div>
 </template>

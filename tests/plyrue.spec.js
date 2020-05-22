@@ -1,4 +1,4 @@
-import { mount, config } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
 import { PlyrueComponent as Plyrue } from '@/';
 config.showDeprecationWarnings = false;
 jest.mock('plyr');
@@ -10,8 +10,8 @@ const sources = [
     src:
       'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4',
     type: 'video/mp4',
-    size: '576',
-  },
+    size: '576'
+  }
 ];
 
 describe('Plyrue component', () => {
@@ -21,8 +21,8 @@ describe('Plyrue component', () => {
       attrs: {
         type: 'video',
         sources,
-        src,
-      },
+        src
+      }
     });
 
     wrapper.vm.player.destroy = jest.fn();
@@ -37,9 +37,9 @@ describe('Plyrue component', () => {
       attrs: {
         type: 'video',
         sources,
-        src,
+        src
       },
-      listeners: { play },
+      listeners: { play }
     });
     wrapper.vm.emitPlayerEvent({ type: 'play' });
     expect(wrapper.emitted().play).toBeTruthy();
@@ -50,11 +50,12 @@ describe('Plyrue component', () => {
     const wrapper = mount(Plyrue, {
       attrs: {
         type: 'embed',
-        src: 'https://vimeo.com/56282283',
-      },
+        src: 'https://vimeo.com/56282283'
+      }
     });
     console.warn = jest.fn();
     wrapper.vm.player.destroy = jest.fn(() => {
+      // eslint-disable-next-line no-throw-literal
       throw 'error';
     });
     wrapper.destroy();

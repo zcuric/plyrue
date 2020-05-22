@@ -1,4 +1,4 @@
-import { mount, config } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
 import { PlyrueComponent as Plyrue } from '@/';
 import Video from '@/components/Video.vue';
 config.showDeprecationWarnings = false;
@@ -13,43 +13,43 @@ const sources = [
     src:
       'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4',
     type: 'video/mp4',
-    size: '576',
+    size: '576'
   },
   {
     src:
       'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4',
     type: 'video/mp4',
-    size: '720',
+    size: '720'
   },
   {
     src:
       'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4',
     type: 'video/mp4',
-    size: '1080',
-  },
+    size: '1080'
+  }
 ];
 const captions = [
   {
     label: 'Français',
     srclang: 'fr',
     src:
-      'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt',
-  },
+      'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt'
+  }
 ];
 
 describe('Plyrue video type', () => {
   it('renders html5 video with sources attribute', () => {
     const wrapper = mount(Plyrue, {
       stubs: {
-        Video,
+        Video
       },
       attrs: {
         type: 'video',
         sources,
         captions,
         poster,
-        src,
-      },
+        src
+      }
     });
     expect(wrapper.find('video')).toBeTruthy();
     expect(wrapper.find('source')).toBeTruthy();
@@ -61,7 +61,7 @@ describe('Plyrue video type', () => {
   it('destroys html5 video', () => {
     const wrapper = mount(Plyrue, {
       stubs: {
-        Video,
+        Video
       },
       attachToDocument: true,
       attrs: {
@@ -69,8 +69,8 @@ describe('Plyrue video type', () => {
         sources,
         captions,
         poster,
-        src,
-      },
+        src
+      }
     });
 
     wrapper.vm.player.destroy = jest.fn();
@@ -81,7 +81,7 @@ describe('Plyrue video type', () => {
   it('emits event', () => {
     const wrapper = mount(Plyrue, {
       stubs: {
-        Video,
+        Video
       },
       attachToDocument: true,
       attrs: {
@@ -89,8 +89,8 @@ describe('Plyrue video type', () => {
         sources,
         captions,
         poster,
-        src,
-      },
+        src
+      }
     });
     wrapper.vm.emitPlayerEvent({ type: 'play' });
     expect(wrapper.emitted().play).toBeTruthy();
@@ -105,8 +105,8 @@ describe('Plyrue video type', () => {
         poster,
         src,
         controls: false,
-        autoplay: true,
-      },
+        autoplay: true
+      }
     });
 
     const attributes = wrapper.find('video').attributes();
@@ -125,20 +125,18 @@ describe('Plyrue video type', () => {
     const wrapper = mount(Plyrue, {
       slots: {
         default: [
-          `
-          <source
+          `<source
             src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
             type="video/mp4"
             size="576"
-          />
-        `,
-        ],
+          /> `
+        ]
       },
       attrs: {
         poster,
         src,
-        type: 'video',
-      },
+        type: 'video'
+      }
     });
 
     expect(wrapper.find('video')).toBeTruthy();
@@ -155,8 +153,8 @@ describe('Video component', () => {
         poster,
         src,
         controls: false,
-        autoplay: true,
-      },
+        autoplay: true
+      }
     });
 
     expect(wrapper.vm.videoAttributes.sources).toBe(undefined);

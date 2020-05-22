@@ -14,32 +14,32 @@ export default new Router({
     {
       path: '/',
       name: 'Default Example',
-      component: DefaultExample,
+      component: DefaultExample
     },
     {
       path: '/video',
       name: 'Video Example',
-      component: VideoExample,
+      component: VideoExample
     },
     {
       path: '/video-slot',
       name: 'Video Slot Example',
-      component: VideoSlotExample,
+      component: VideoSlotExample
     },
     {
       path: '/vimeo',
       name: 'Vimeo',
-      component: VimeoExample,
+      component: VimeoExample
     },
     {
       path: '/youtube',
       name: 'YouTube',
-      component: YoutubeExample,
+      component: YoutubeExample
     },
     {
       path: '/audio',
       name: 'Audio',
-      component: AudioExample,
-    },
-  ],
+      component: AudioExample
+    }
+  ]
 });

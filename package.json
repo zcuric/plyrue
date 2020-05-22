@@ -12,8 +12,7 @@
     "serve": "vue-cli-service serve ./example/main.js",
     "build": "bili",
     "test": "jest",
-    "format": "prettier --write .",
-    "lint": "vue-cli-service lint",
+    "lint": "eslint . --fix",
     "release": "npx np",
     "prebuild": "rimraf dist",
     "prepare": "npm run build"
@@ -25,6 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
+    "@extensionengine/eslint-config": "^1.2.0",
     "@vue/cli-plugin-babel": "^4.3.1",
     "@vue/cli-plugin-eslint": "^4.3.1",
     "@vue/cli-plugin-unit-jest": "^4.3.1",
@@ -34,6 +34,13 @@
     "babel-jest": "^26.0.1",
     "bili": "^4.10.0",
     "eslint": "^7.0.0",
+    "eslint-config-semistandard": "^15.0.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-require-sort": "^1.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
@@ -50,22 +57,6 @@
   "files": [
     "dist"
   ],
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {
-      "no-console": 0
-    },
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
   "postcss": {
     "plugins": {
       "tailwindcss": {},
