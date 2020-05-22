@@ -31,6 +31,7 @@ export default {
   mounted() {
     const { $el, options, emitPlayerEvent } = this;
     this.player = new Plyr($el.firstChild, options);
+    this.player.poster = this.options.poster;
     this.$emit('player', this.player);
     const events = Object.keys(this.$listeners);
     events.forEach(event => {
