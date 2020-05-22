@@ -1,5 +1,6 @@
-import { mount } from '@vue/test-utils';
+import { mount, config } from '@vue/test-utils';
 import { PlyrueComponent as Plyrue } from '@/';
+config.showDeprecationWarnings = false;
 jest.mock('plyr');
 
 const sources = [
@@ -18,8 +19,8 @@ describe('Plyrue audio type', () => {
       },
     });
 
-    expect(wrapper.contains('audio')).toBe(true);
-    expect(wrapper.contains('source')).toBe(true);
+    expect(wrapper.find('audio')).toBeTruthy();
+    expect(wrapper.find('source')).toBeTruthy();
 
     wrapper.destroy();
   });
@@ -52,7 +53,7 @@ describe('Plyrue audio type', () => {
       },
     });
 
-    expect(wrapper.contains('audio')).toBe(true);
-    expect(wrapper.contains('source')).toBe(true);
+    expect(wrapper.find('audio')).toBeTruthy();
+    expect(wrapper.find('source')).toBeTruthy();
   });
 });

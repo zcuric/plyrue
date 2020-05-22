@@ -1,6 +1,7 @@
-import { mount } from '@vue/test-utils';
+import { mount, config } from '@vue/test-utils';
 import { PlyrueComponent as Plyrue } from '@/';
 import VideoEmbed from '@/components/VideoEmbed.vue';
+config.showDeprecationWarnings = false;
 jest.mock('plyr');
 
 describe('Plyrue video embed type', () => {
@@ -15,8 +16,8 @@ describe('Plyrue video embed type', () => {
       },
     });
 
-    expect(wrapper.contains('iframe')).toBe(true);
-    expect(wrapper.find(VideoEmbed).is(VideoEmbed)).toBe(true);
+    expect(wrapper.find('iframe')).toBeTruthy();
+    expect(wrapper.findComponent(VideoEmbed)).toBeTruthy();
     wrapper.destroy();
   });
 
@@ -31,8 +32,8 @@ describe('Plyrue video embed type', () => {
       },
     });
 
-    expect(wrapper.contains('iframe')).toBe(true);
-    expect(wrapper.find(VideoEmbed).is(VideoEmbed)).toBe(true);
+    expect(wrapper.find('iframe')).toBeTruthy();
+    expect(wrapper.findComponent(VideoEmbed)).toBeTruthy();
     wrapper.destroy();
   });
 });

@@ -1,5 +1,6 @@
-import { mount } from '@vue/test-utils';
+import { mount, config } from '@vue/test-utils';
 import { PlyrueComponent as Plyrue } from '@/';
+config.showDeprecationWarnings = false;
 jest.mock('plyr');
 
 describe('Plyrue default type', () => {
@@ -14,7 +15,7 @@ describe('Plyrue default type', () => {
       },
     });
 
-    expect(wrapper.contains('audio')).toBe(true);
-    expect(wrapper.contains('source')).toBe(true);
+    expect(wrapper.find('audio')).toBeTruthy();
+    expect(wrapper.find('source')).toBeTruthy();
   });
 });

@@ -1,6 +1,7 @@
-import { mount } from '@vue/test-utils';
+import { mount, config } from '@vue/test-utils';
 import { PlyrueComponent as Plyrue } from '@/';
 import Video from '@/components/Video.vue';
+config.showDeprecationWarnings = false;
 jest.mock('plyr');
 
 const poster =
@@ -50,10 +51,10 @@ describe('Plyrue video type', () => {
         src,
       },
     });
-    expect(wrapper.contains('video')).toBe(true);
-    expect(wrapper.contains('source')).toBe(true);
-    expect(wrapper.contains('track')).toBe(true);
-    expect(wrapper.find(Video).is(Video)).toBe(true);
+    expect(wrapper.find('video')).toBeTruthy();
+    expect(wrapper.find('source')).toBeTruthy();
+    expect(wrapper.find('track')).toBeTruthy();
+    expect(wrapper.find(Video).is(Video)).toBeTruthy();
     wrapper.destroy();
   });
 
@@ -95,7 +96,7 @@ describe('Plyrue video type', () => {
     expect(wrapper.emitted().play).toBeTruthy();
   });
 
-  it('sets video player attributes', () => {
+  it.only('sets video player attributes', () => {
     const wrapper = mount(Plyrue, {
       attrs: {
         type: 'video',
@@ -110,7 +111,7 @@ describe('Plyrue video type', () => {
 
     const attributes = wrapper.find('video').attributes();
 
-    expect(attributes.poster).toBe(poster);
+    expect(wrapper.vm.player.poster).toBe(poster);
     expect(attributes.src).toBe(src);
     expect(attributes.controls).toBe(undefined);
     expect(attributes.autoplay).toBe('autoplay');
@@ -140,8 +141,8 @@ describe('Plyrue video type', () => {
       },
     });
 
-    expect(wrapper.contains('video')).toBe(true);
-    expect(wrapper.contains('source')).toBe(true);
+    expect(wrapper.find('video')).toBeTruthy();
+    expect(wrapper.find('source')).toBeTruthy();
   });
 });
 

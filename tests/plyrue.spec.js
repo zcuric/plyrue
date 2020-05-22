@@ -1,5 +1,6 @@
-import { mount } from '@vue/test-utils';
+import { mount, config } from '@vue/test-utils';
 import { PlyrueComponent as Plyrue } from '@/';
+config.showDeprecationWarnings = false;
 jest.mock('plyr');
 
 const src =
@@ -38,11 +39,11 @@ describe('Plyrue component', () => {
         sources,
         src,
       },
-      listeners: { play }
+      listeners: { play },
     });
     wrapper.vm.emitPlayerEvent({ type: 'play' });
     expect(wrapper.emitted().play).toBeTruthy();
-    expect(play).toHaveBeenCalled()
+    expect(play).toHaveBeenCalled();
   });
 
   it('catches Youtube error', () => {
