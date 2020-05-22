@@ -27,11 +27,16 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    poster: {
+      type: String,
+      default: null,
+    },
   },
   mounted() {
     const { $el, options, emitPlayerEvent } = this;
+    const poster = this.poster || options.poster
     this.player = new Plyr($el.firstChild, options);
-    this.player.poster = this.options.poster;
+    if(poster) this.player.poster = poster;
     this.$emit('player', this.player);
     const events = Object.keys(this.$listeners);
     events.forEach(event => {
