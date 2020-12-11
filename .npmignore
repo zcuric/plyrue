@@ -3,4 +3,5 @@
 .git*
 .npmignore
 public/
-
+.eslintignore
+.eslintrc.js
