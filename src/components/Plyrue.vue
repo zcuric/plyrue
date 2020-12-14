@@ -1,8 +1,8 @@
 <template>
   <div class="plyrue">
-    <component :is="component" v-bind="$attrs">
-      <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope">
-        <slot :name="slot" v-bind="scope" />
+    <component :is="`plyrue-${type}`" v-bind="$attrs">
+      <template v-for="(_, slot) of $scopedSlots" #[slot]="scope">
+        <slot :name="slot" v-bind="scope"></slot>
       </template>
     </component>
   </div>
@@ -21,22 +21,32 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'default',
+      default: 'default'
     },
     options: {
       type: Object,
-      default: () => ({}),
+      default: () => ({})
     },
     poster: {
       type: String,
-      default: null,
-    },
+      default: null
+    }
+  },
+  methods: {
+    emitPlayerEvent(event) {
+      this.$emit(event.type, event);
+    }
+  },
+  watch: {
+    poster() {
+      this.player.poster = this.poster;
+    }
   },
   mounted() {
     const { $el, options, emitPlayerEvent } = this;
-    const poster = this.poster || options.poster
+    const poster = this.poster || options.poster;
     this.player = new Plyr($el.firstChild, options);
-    if(poster) this.player.poster = poster;
+    if (poster) this.player.poster = poster;
     this.$emit('player', this.player);
     const events = Object.keys(this.$listeners);
     events.forEach(event => {
@@ -54,21 +64,11 @@ export default {
       console.warn(e.message);
     }
   },
-  methods: {
-    emitPlayerEvent(event) {
-      this.$emit(event.type, event);
-    },
-  },
-  computed: {
-    component() {
-      return `plyrue-${this.type}`;
-    },
-  },
   components: {
     'plyrue-audio': Audio,
     'plyrue-default': Default,
     'plyrue-video': Video,
-    'plyrue-embed': VideoEmbed,
-  },
+    'plyrue-embed': VideoEmbed
+  }
 };
 </script>

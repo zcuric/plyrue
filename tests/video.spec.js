@@ -96,7 +96,7 @@ describe('Plyrue video type', () => {
     expect(wrapper.emitted().play).toBeTruthy();
   });
 
-  it.only('sets video player attributes', () => {
+  it('sets video player attributes', () => {
     const wrapper = mount(Plyrue, {
       attrs: {
         type: 'video',
@@ -118,6 +118,28 @@ describe('Plyrue video type', () => {
     expect(attributes.sources).toBe(undefined);
     expect(attributes.captions).toBe(undefined);
 
+    wrapper.destroy();
+  });
+
+  it('dynamically changes player poster', async () => {
+    const wrapper = mount(Plyrue, {
+      attrs: {
+        type: 'video',
+        sources,
+        captions,
+        poster,
+        src,
+        controls: false,
+        autoplay: true
+      }
+    });
+
+    expect(wrapper.vm.player.poster).toBe(poster);
+    const newPoster = 'https://via.placeholder.com/300/09f/fff.png';
+    await wrapper.setProps({
+      poster: newPoster
+    });
+    expect(wrapper.vm.player.poster).toBe(newPoster);
     wrapper.destroy();
   });
 
