@@ -3,6 +3,9 @@
 module.exports = {
   root: true,
   extends: '@extensionengine',
+  rules: {
+    'vue/component-definition-name-casing': 0
+  },
   overrides: [
     {
       files: ['src/**'],
