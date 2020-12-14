@@ -1,4 +1,102 @@
 
+<a name="v2.3.0"></a>
+## [v2.3.0](https://github.com/zcuric/plyrue/compare/v2.2.2...v2.3.0) (2020-12-14)
+
+### Add
+
+* Add ability to dynamically change posters
+
+### Update
+
+* Update babel and eslint configs
+
+
+<a name="v2.2.2"></a>
+## [v2.2.2](https://github.com/zcuric/plyrue/compare/v2.2.1...v2.2.2) (2020-12-11)
+
+### Bump
+
+* Bump elliptic from 6.5.2 to 6.5.3
+* Bump lodash from 4.17.15 to 4.17.19
+* Bump websocket-extensions from 0.1.3 to 0.1.4
+
+### Update
+
+* Update npmignore
+* Update dependencies
+
+### Use
+
+* Use [@extensionengine](https://github.com/extensionengine)/eslint-config and lint
+
+
+<a name="v2.2.1"></a>
+## [v2.2.1](https://github.com/zcuric/plyrue/compare/v2.2.0...v2.2.1) (2020-05-22)
+
+### Set
+
+* Set poster if available
+* Set player poster from options
+
+### Update
+
+* Update tests
+* Update dependencies
+
+
+<a name="v2.2.0"></a>
+## [v2.2.0](https://github.com/zcuric/plyrue/compare/v2.1.6...v2.2.0) (2020-04-19)
+
+### Replace
+
+* Replace emit props with $listeners 🎨
+
+### Test
+
+* Test if event handler is called ✅
+
+### Update
+
+* Update dependencies
+* Update readme 📝
+
+
+<a name="v2.1.6"></a>
+## [v2.1.6](https://github.com/zcuric/plyrue/compare/v2.1.5...v2.1.6) (2020-03-11)
+
+### Remove
+
+* Remove np config, update package.json
+
+### Update
+
+* Update dependencies
+
+
+<a name="v2.1.5"></a>
+## [v2.1.5](https://github.com/zcuric/plyrue/compare/v2.1.4...v2.1.5) (2019-12-22)
+
+### Bump
+
+* Bump eslint-utils from 1.4.0 to 1.4.2
+
+### Update
+
+* Update dependencies
+
+
+<a name="v2.1.4"></a>
+## [v2.1.4](https://github.com/zcuric/plyrue/compare/v2.1.2...v2.1.4) (2019-09-24)
+
+### Add
+
+* Add prepare command to package.json
+
+### Update
+
+* Update CHANGELOG.md
+
+
 <a name="v2.1.2"></a>
 ## [v2.1.2](https://github.com/zcuric/plyrue/compare/v2.1.1...v2.1.2) (2019-09-24)
 
