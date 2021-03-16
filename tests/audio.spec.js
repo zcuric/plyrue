@@ -1,7 +1,12 @@
 import { config, mount } from '@vue/test-utils';
+import Plyr from 'plyr';
 import { PlyrueComponent as Plyrue } from '@/';
 config.showDeprecationWarnings = false;
-jest.mock('plyr');
+jest.mock('Plyr');
+Plyr.mockImplementation(() => ({
+  on: jest.fn(),
+  destroy: jest.fn()
+}));
 
 const sources = [
   {

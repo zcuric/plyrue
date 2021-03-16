@@ -1,8 +1,13 @@
 import { config, mount } from '@vue/test-utils';
+import Plyr from 'plyr';
 import { PlyrueComponent as Plyrue } from '@/';
 import VideoEmbed from '@/components/VideoEmbed.vue';
 config.showDeprecationWarnings = false;
-jest.mock('plyr');
+jest.mock('Plyr');
+Plyr.mockImplementation(() => ({
+  on: jest.fn(),
+  destroy: jest.fn()
+}));
 
 describe('Plyrue video embed type', () => {
   it('embeds youtube video', () => {

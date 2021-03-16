@@ -1,7 +1,15 @@
 import { config, mount } from '@vue/test-utils';
+import Plyr from 'plyr';
 import { PlyrueComponent as Plyrue } from '@/';
 config.showDeprecationWarnings = false;
-jest.mock('plyr');
+jest.mock('Plyr');
+Plyr.mockImplementation(() => ({
+  on: jest.fn(),
+  destroy: jest.fn(() => {
+    // eslint-disable-next-line no-throw-literal
+    throw 'error';
+  })
+}));
 
 const src =
   'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4';
@@ -30,7 +38,7 @@ describe('Plyrue component', () => {
     expect(wrapper.vm.player.destroy).toHaveBeenCalled();
   });
 
-  it('emits event', () => {
+  it.only('emits event', () => {
     const play = jest.fn();
     const wrapper = mount(Plyrue, {
       attachToDocument: true,
@@ -54,10 +62,6 @@ describe('Plyrue component', () => {
       }
     });
     console.warn = jest.fn();
-    wrapper.vm.player.destroy = jest.fn(() => {
-      // eslint-disable-next-line no-throw-literal
-      throw 'error';
-    });
     wrapper.destroy();
     expect(console.warn).toHaveBeenCalled();
   });

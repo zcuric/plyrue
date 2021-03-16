@@ -1,8 +1,15 @@
 import { config, mount } from '@vue/test-utils';
+import Plyr from 'plyr';
 import { PlyrueComponent as Plyrue } from '@/';
 config.showDeprecationWarnings = false;
-jest.mock('plyr');
-
+jest.mock('Plyr');
+Plyr.mockImplementation(() => ({
+  on: jest.fn(),
+  destroy: jest.fn(() => {
+    // eslint-disable-next-line no-throw-literal
+    throw 'error';
+  })
+}));
 describe('Plyrue default type', () => {
   it('renders html5 audio with slot', () => {
     const wrapper = mount(Plyrue, {

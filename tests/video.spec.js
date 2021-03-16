@@ -1,8 +1,13 @@
 import { config, mount } from '@vue/test-utils';
+import Plyr from 'plyr';
 import { PlyrueComponent as Plyrue } from '@/';
 import Video from '@/components/Video.vue';
 config.showDeprecationWarnings = false;
-jest.mock('plyr');
+jest.mock('Plyr');
+Plyr.mockImplementation(() => ({
+  on: jest.fn(),
+  destroy: jest.fn()
+}));
 
 const poster =
   'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"';
