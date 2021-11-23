@@ -2,7 +2,7 @@ import { config, mount } from '@vue/test-utils';
 import Plyr from 'plyr';
 import { PlyrueComponent as Plyrue } from '@/';
 config.showDeprecationWarnings = false;
-jest.mock('Plyr');
+jest.mock('Plyr', () => jest.fn());
 Plyr.mockImplementation(() => ({
   on: jest.fn(),
   destroy: jest.fn()

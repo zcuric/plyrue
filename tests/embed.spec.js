@@ -3,7 +3,7 @@ import Plyr from 'plyr';
 import { PlyrueComponent as Plyrue } from '@/';
 import VideoEmbed from '@/components/VideoEmbed.vue';
 config.showDeprecationWarnings = false;
-jest.mock('Plyr');
+jest.mock('Plyr', () => jest.fn());
 Plyr.mockImplementation(() => ({
   on: jest.fn(),
   destroy: jest.fn()
