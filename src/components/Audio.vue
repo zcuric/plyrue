@@ -1,51 +1,39 @@
 <template>
   <audio v-bind="attributes">
     <slot></slot>
-    <template v-if="sources">
-      <source v-for="source in sources" :key="source.src" v-bind="source">
-    </template>
+    <source v-for="source in sources" :key="source.src" v-bind="source" />
   </audio>
 </template>
 
-<script>
-export default {
-  inheritAttrs: false,
-  props: {
-    sources: {
-      type: Array,
-      default: () => []
-    },
-    autoplay: {
-      type: Boolean,
-      default: false
-    },
-    controls: {
-      type: Boolean,
-      default: true
-    },
-    loop: {
-      type: Boolean,
-      default: false
-    },
-    muted: {
-      type: Boolean,
-      default: false
-    },
-    preload: {
-      type: String,
-      default: 'none'
-    },
-    src: {
-      type: String,
-      default: null
-    }
-  },
-  computed: {
-    attributes() {
-      const attributes = { ...this.$props };
-      delete attributes.sources;
-      return attributes;
-    }
+<script setup lang="ts">
+import { computed } from 'vue';
+import type { PlyrueSource } from '../types';
+
+defineOptions({ name: 'PlyrueAudio', inheritAttrs: false });
+
+const props = withDefaults(
+  defineProps<{
+    sources?: PlyrueSource[];
+    autoplay?: boolean;
+    controls?: boolean;
+    loop?: boolean;
+    muted?: boolean;
+    preload?: string;
+    src?: string;
+  }>(),
+  {
+    sources: () => [],
+    autoplay: false,
+    controls: true,
+    loop: false,
+    muted: false,
+    preload: 'none',
+    src: undefined
   }
-};
+);
+
+const attributes = computed(() => {
+  const { sources: _sources, ...rest } = props;
+  return rest;
+});
 </script>

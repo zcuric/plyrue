@@ -1,6 +1,8 @@
-.DS_Store
 node_modules
-/dist
+dist
+dist-example
+coverage
+.DS_Store
 
 # local env files
 .env.local
@@ -15,7 +17,4 @@ yarn-error.log*
 .idea
 .vscode
 *.suo
-*.ntvs*
-*.njsproj
-*.sln
 *.sw*

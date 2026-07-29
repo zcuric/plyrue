@@ -1,54 +1,66 @@
 <p align="center">
   <a href="#">
-    <img width="150"src="./docs/logo.png">
+    <img width="150" src="./docs/logo.png">
   </a>
 </p>
 <h1 align="center">Plyrue</h1>
-<p align="center">Vue.js plugin for <a href="https://plyr.io">Plyr</a></p>
+<p align="center">Vue 3 plugin for <a href="https://plyr.io">Plyr</a></p>
 
 <p align="center">
 <a href="https://www.npmjs.com/package/plyrue"><img src="https://img.shields.io/npm/v/plyrue.svg"/></a>
-<a href="https://vuejs.org/"><img src="https://img.shields.io/badge/vue-2.x-brightgreen.svg"/></a>
-<a href="https://circleci.com/gh/zcuric/plyrue">
-<img src="https://circleci.com/gh/zcuric/plyrue/tree/master.svg?style=svg"/></a>
+<a href="https://vuejs.org/"><img src="https://img.shields.io/badge/vue-3.x-brightgreen.svg"/></a>
+<a href="https://github.com/zcuric/plyrue/actions/workflows/ci.yml"><img src="https://github.com/zcuric/plyrue/actions/workflows/ci.yml/badge.svg"/></a>
 </p>
 
 ## About
 
-Plyrue (/pliru/) is a Vue plugin that is actually a wrapper around popular media player, [Plyr](https://plyr.io). It provides a simple API to work with Vue applications.
+Plyrue (/pliru/) is a Vue plugin that wraps the [Plyr](https://plyr.io) media player and gives it a simple, declarative API.
+
+Written in TypeScript, shipped as ESM + UMD with bundled type declarations.
+
+## Requirements
+
+| Plyrue | Vue  | Plyr   | Node     |
+| ------ | ---- | ------ | -------- |
+| 3.x    | ^3.4 | ^3.7.8 | >= 20.19 |
+| 2.x    | ^2.6 | ^3.6   | —        |
+
+`vue` and `plyr` are peer dependencies — install them alongside Plyrue.
 
 ## Installation
 
+```sh
+npm install plyrue plyr
 ```
-npm install plyrue
-# or
-yarn add plyrue
+
+Import Plyr's stylesheet once in your app:
+
+```js
+import 'plyr/dist/plyr.css';
 ```
 
 ## Initialization
 
-```js
-import App from './App.vue';
+```ts
+import { createApp } from 'vue';
 import Plyrue from 'plyrue';
-import Vue from 'vue';
+import 'plyr/dist/plyr.css';
+import App from './App.vue';
 
-Vue.use(Plyrue);
-
-new Vue({
-  render: h => h(App),
-}).$mount('#app');
+createApp(App).use(Plyrue).mount('#app');
 ```
 
-Plyrue component can be used in without plugin initialization:
-```js
-import { PlyrueComponent as Plyrue } from 'plyrue';
-...
-export default { 
-  ...
-  components: { Plyrue }
-}
-```
+Or import the component directly, without registering the plugin:
 
+```vue
+<script setup lang="ts">
+import { Plyrue } from 'plyrue';
+</script>
+
+<template>
+  <Plyrue type="video" src="https://example.com/video-576p.mp4" />
+</template>
+```
 
 ## Usage
 
@@ -65,47 +77,32 @@ Plyrue can be used in two ways:
   poster="https://example.com/video-HD.jpg"
   src="https://example.com/video-576p.mp4"
   :options="options"
-  crossorigin
 >
-  <source
-    src="https://example.com/video-576p.mp4"
-    type="video/mp4"
-    size="576"
-  >
+  <source src="https://example.com/video-576p.mp4" type="video/mp4" size="576" />
   <track
     kind="captions"
     label="English"
     srclang="en"
     src="https://example.com/video-HD.en.vtt"
     default
-  >
+  />
 </plyrue>
 ```
 
-When using slot the `video` or `audio` tag is omitted if the `type` props is set. If `type` is not set the `default` component will be used and in that case you must include the `video` or `audio` tag. Example:
+When `type` is set, Plyrue renders the `video` / `audio` tag for you. When it is not set, the `default` component is used and you must supply the media element yourself:
 
 ```vue
 <plyrue>
-  <video
-    controls
-    src="https://example.com/video-576p.mp4"
-  >
-    <source
-      src="https://example.com/video-1080p.mp4"
-      type="video/mp4"
-      size="1080"
-    >
+  <video controls src="https://example.com/video-576p.mp4">
+    <source src="https://example.com/video-1080p.mp4" type="video/mp4" size="1080" />
     <track
       kind="captions"
       label="English"
       srclang="en"
       src="https://example.com/video-HD.en.vtt"
       default
-    >
-    <a
-      href="https://example.com/video-576p.mp4"
-      download
-    >Download</a>
+    />
+    <a href="https://example.com/video-576p.mp4" download>Download</a>
   </video>
 </plyrue>
 ```
@@ -113,137 +110,111 @@ When using slot the `video` or `audio` tag is omitted if the `type` props is set
 ### With data
 
 ```vue
+<script setup lang="ts">
+import type { PlyrueCaption, PlyrueSource } from 'plyrue';
+
+const sources: PlyrueSource[] = [
+  { src: 'https://example.com/video-576p.mp4', type: 'video/mp4', size: 576 }
+];
+
+const captions: PlyrueCaption[] = [
+  {
+    label: 'Croatian',
+    srclang: 'hr',
+    src: 'https://example.com/video-HD.hr.vtt'
+  }
+];
+</script>
+
 <template>
   <plyrue
+    type="video"
     poster="https://example.com/video-HD.jpg"
     src="https://example.com/video-576p.mp4"
-    type="video"
-    ref="plyrue"
     :sources="sources"
     :captions="captions"
   />
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      sources: [
-        {
-          src: 'https://example.com/video-576p.mp4',
-          type: 'video/mp4',
-          size: '576',
-        },
-      ],
-      captions: [
-        {
-          label: 'Croatian',
-          srclang: 'hr',
-          src: 'https://example.com/video-HD.hr.vtt',
-        },
-      ],
-    };
-  },
-};
-</script>
 ```
 
 ## Plugin options
 
-```
-Vue.use(Plyrue, pluginOptions)
+```ts
+app.use(Plyrue, { name: 'my-player' });
 ```
 
 ### name
 
 - **Type**: `string`
-- **Default**: `plyrue`.
+- **Default**: `plyrue`
 
-The plugin name.
+The name the component is registered under.
 
 ## Props
 
 ### type
 
-- **Type**: `string`
-- **Default**: `default`
-
-Type of media you want use
+- **Type**: `'default' | 'audio' | 'video' | 'embed'`
+- **Default**: `'default'`
 
 - `video` for HTML5 video
 - `audio` for HTML5 audio
-- `embed` for Youtube and Vimeo.
-
-If type is unspecified it will default to a `default` component which only proxies the slot.
-
-For examples and usage please check the [examples folder](https://github.com/zcuric/plyrue/tree/master/example).
+- `embed` for YouTube and Vimeo
+- `default` renders the slot as-is
 
 ### options
 
-- **Type**: `Object`
+- **Type**: `Plyr.Options`
 - **Default**: `{}`
 
-Options for Plyr player. Documentation for Plyr options can be found [here](https://github.com/sampotts/plyr#options).
+Options for the Plyr player, documented [here](https://github.com/sampotts/plyr#options). The player is recreated when this object changes.
+
+### poster
+
+- **Type**: `string`
+- **Required**: false
+
+Poster image, applied to the player and kept in sync when it changes.
 
 ### sources
 
-- **Type**: `Array`
+- **Type**: `PlyrueSource[]`
 - **Required**: false
 
-Array of objects. For videos:
+For video:
 
-```js
-[
-  {
-    src: 'https://example.com/video.mp4',
-    type: 'video/mp4', // or any other valid type
-    size: '576' // example size
-  },
-  ...
-]
+```ts
+[{ src: 'https://example.com/video.mp4', type: 'video/mp4', size: 576 }];
 ```
 
 For audio:
 
-```js
- [
-  {
-    src: 'https://example.com/video.m24',
-    type: 'audio/mp3', // or any other valid type
-  },
-  ...
-]
+```ts
+[{ src: 'https://example.com/audio.mp3', type: 'audio/mp3' }];
 ```
 
 ### captions
 
-- **Type**: `Array`
+- **Type**: `PlyrueCaption[]`
 - **Required**: false
 
-Array of objects. Captions for video type:
-
-```js
+```ts
 [
   {
     label: 'Croatian',
     srclang: 'hr',
-    src:'https://example.com/caption.hr.vtt',
-  },
-],
-...
+    src: 'https://example.com/caption.hr.vtt'
+  }
+];
 ```
 
 ## Attributes
 
-All valid attributes for `video`, `audio` and `iframe` are passed down to the corresponding components. `Plyrue` provides defaults for `video` and `audio`.
+All valid attributes for `video`, `audio` and `iframe` are passed down to the corresponding element. Plyrue provides sensible defaults for `video` and `audio`.
 
-Check the valid attributes here:
-
-- [video](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#Attributes)
-- [audio](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#Attributes)
+- [video](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attributes)
+- [audio](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#attributes)
 - [iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
-
-Example:
 
 ```vue
 <plyrue type="audio" :sources="audio" autoplay loop />
@@ -251,43 +222,57 @@ Example:
 
 ## Events
 
-`Plyrue` component supports `plyr` events.
-Events are documented [here](https://github.com/sampotts/plyr#events).
+Every [Plyr event](https://github.com/sampotts/plyr#events) is re-emitted by the component, plus a `player` event carrying the Plyr instance once it is created.
 
 ```vue
-<template>
-  <plyrue @playing="handlePlaying" ... />
-</template>
+<script setup lang="ts">
+import type { PlyrPlayer } from 'plyrue';
 
-<script>
-export default {
-  methods: { 
-    handlePlaying(event) {}
-  }
-};
+const onPlayer = (player: PlyrPlayer) => console.log(player);
+const onPlaying = (event: Event) => console.log(event);
 </script>
+
+<template>
+  <plyrue type="video" src="…" @player="onPlayer" @playing="onPlaying" />
+</template>
 ```
 
+The full list is exported as `PLYR_EVENTS`.
+
+## Accessing the player instance
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const plyrue = ref();
+const pause = () => plyrue.value?.player?.pause();
+</script>
+
+<template>
+  <plyrue ref="plyrue" type="video" src="…" />
+</template>
+```
+
+## Migrating from 2.x
+
+- Requires Vue 3. Register with `app.use(Plyrue)` instead of `Vue.use(Plyrue)`.
+- `vue` and `plyr` are now peer dependencies you install yourself.
+- Plyr's CSS is no longer imported by the package — add `import 'plyr/dist/plyr.css'` to your app.
+- All Plyr events are emitted unconditionally; you no longer need a listener attached at mount time for an event to fire.
+- `embed` sources are restricted to `http(s)` URLs; anything else renders an iframe with no `src`.
+- The package is published as ESM + UMD (`plyrue.js` / `plyrue.umd.cjs`) with bundled types.
 
 ## Development
 
+```sh
+npm run dev            # run the example app
+npm run test           # run the test suite
+npm run test:coverage  # run tests with coverage
+npm run lint           # lint
+npm run typecheck      # type-check
+npm run build          # type-check and build the library
 ```
-# Running examples
-npm run serve
-
-# Running tests
-npm run test
-
-# Running build
-npm run build
-```
-
-## TODO
-
-- Rewrite in TS
-- Make documentation better
-- Check SSR compatibility
-- Provide more examples
 
 ## Contributing
 

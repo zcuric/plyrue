@@ -1,28 +1,24 @@
 <template>
-  <div class="flex flex-col items-center justify-center">
-    <div class="bg-blue-400 flex justify-center links mb-10 shadow text-white w-full">
-      <router-link class="px-3 py-3 hover:bg-blue-500" to="/">Default</router-link>
-      <router-link class="px-3 py-3 hover:bg-blue-500" to="/audio">Audio</router-link>
-      <router-link class="px-3 py-3 hover:bg-blue-500" to="/video">Video</router-link>
-      <router-link class="px-3 py-3 hover:bg-blue-500" to="/video-slot">Video slot</router-link>
-      <router-link class="px-3 py-3 hover:bg-blue-500" to="/vimeo">Vimeo</router-link>
-      <router-link class="px-3 py-3 hover:bg-blue-500" to="/youtube">YouTube</router-link>
-    </div>
-    <router-view />
-    <div></div>
+  <div class="min-h-screen bg-slate-50 text-slate-900">
+    <nav class="flex flex-wrap justify-center gap-1 bg-slate-900 p-2">
+      <RouterLink
+        v-for="route in routes"
+        :key="route.path"
+        :to="route.path"
+        class="rounded px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-700 hover:text-white"
+        active-class="bg-slate-700 text-white"
+      >
+        {{ route.name }}
+      </RouterLink>
+    </nav>
+    <main class="flex flex-col items-center gap-6 px-4 py-10">
+      <RouterView />
+    </main>
   </div>
 </template>
 
-<script>
-export default {};
+<script setup lang="ts">
+import { RouterLink, RouterView, useRouter } from 'vue-router';
+
+const routes = useRouter().options.routes;
 </script>
-
-<style>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.plyrue {
-  @apply w-1/3;
-}
-</style>

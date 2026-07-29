@@ -1,3 +1,45 @@
+<a name="v3.0.0"></a>
+## [v3.0.0](https://github.com/zcuric/plyrue/compare/v2.3.3...v3.0.0) (2026-07-29)
+
+### BREAKING CHANGE
+
+Plyrue 3 requires Vue 3. See the migration notes in the README.
+
+* Requires Vue 3 — register with `app.use(Plyrue)` instead of `Vue.use(Plyrue)`
+* `vue` and `plyr` are now peer dependencies
+* Plyr's CSS is no longer imported by the package — add `import 'plyr/dist/plyr.css'` in your app
+* Package is published as ESM + UMD (`plyrue.js` / `plyrue.umd.cjs`) with bundled type declarations
+* `embed` sources are restricted to `http(s)` URLs
+* Requires Node >= 20.19
+
+### Add
+
+* Add Vue 3 support, rewritten in TypeScript with the Composition API
+* Add bundled type declarations and exported `PlyrueSource`, `PlyrueCaption`, `PlyrueType`, `PlyrPlayer` types
+* Add `PLYR_EVENTS` export; all Plyr events are now re-emitted unconditionally
+* Add player recreation when `options` change
+* Add GitHub Actions CI running lint, typecheck, tests and audit on Node 20/22/24
+* Add events example page to the demo app
+
+### Fix
+
+* Fix embed `src` handling — URLs are parsed and only `http(s)` is accepted, so `javascript:` and `data:` URLs can no longer reach the iframe
+* Fix YouTube URL rewriting for watch URLs carrying extra query parameters
+* Fix `it.only` in the test suite that was silently skipping cases
+
+### Security
+
+* Resolve 11 high severity advisories (transitive `brace-expansion` DoS) by replacing the toolchain and pinning the fixed version
+
+### Update
+
+* Replace bili, vue-cli, Babel and Jest with Vite, Vitest and vue-tsc
+* Replace the legacy ESLint setup with flat config plus Prettier
+* Rewrite the test suite in TypeScript — 44 tests, 98% statement coverage
+* Rewrite the example app on Vue 3, vue-router 4 and Tailwind 4
+* Replace the CircleCI config with GitHub Actions
+
+
 
 <a name="v2.3.0"></a>
 ## [v2.3.0](https://github.com/zcuric/plyrue/compare/v2.2.2...v2.3.0) (2020-12-14)
