@@ -70,7 +70,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.10.0",
     "globals": "^17.8.0",
-    "happy-dom": "^20.11.1",
+    "happy-dom": "^21.0.4",
     "plyr": "^3.8.4",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.18",
